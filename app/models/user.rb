@@ -1,6 +1,9 @@
 require "validator/email_validator"
 
 class User < ApplicationRecord
+  # include 追加
+  include UserAuth::Tokenizable
+  
   before_validation :downcase_email
 
   # gem bcryptを追加で使用可能なパスワード暗号化する機能
